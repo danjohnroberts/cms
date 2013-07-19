@@ -1,0 +1,283 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+
+   body {
+	background-color: #FFF;
+    }
+	
+	 .ui-page { background:  #FFF;}
+
+
+
+
+.img {
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	
+}
+
+#search ul
+
+	{margin: 0px;
+	padding: 0px;
+	
+	}
+
+
+#search li a {
+	font-size: 10px;
+	
+}
+
+#search li a:hover {
+	color:#090;
+	
+}
+
+#title {
+
+	font-size:14px;
+	
+}
+
+#cat li   {
+	font-size: 10px;
+
+	list-style-type: none;
+	
+	line-height: 24px;
+
+}
+
+#cat span {
+	font-size: 12px;
+	
+}
+
+.round {
+border-radius: 1em;	
+}
+
+#search li  {
+	font-size: 10px;
+
+	list-style-type: none;
+	
+	padding-bottom: 8px;
+}
+
+ .error {
+	color: #0C0;
+	
+}
+       valid {  }
+	   
+	   
+	   .success {
+	display: none;		   
+		   
+	   }
+
+
+
+.ui-btn-up-b {
+border: 1px solid #145072;
+background: #00994a;
+font-weight: bold;
+color: white;
+background-image: -webkit-gradient(linear,left top,left bottom,from(#0e4c2a),to(#00994a));
+background-image: -webkit-linear-gradient(#0e4c2a,#00994a);
+background-image: -moz-linear-gradient(#0e4c2a,#00994a);
+background-image: -ms-linear-gradient(#0e4c2a,#00994a);
+background-image: -o-linear-gradient(#0e4c2a,#00994a);
+background-image: linear-gradient(#0e4c2a,#00994a);
+}
+.ui-btn-hover-b{
+	
+	
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#00994a,#0e4c2a));
+background-image: -webkit-linear-gradient(#00994a,#0e4c2a);
+background-image: -moz-linear-gradient(#00994a,#0e4c2a);
+background-image: -ms-linear-gradient(#00994a,#0e4c2a);
+background-image: -o-linear-gradient(#00994a,#0e4c2a);
+background-image: linear-gradient(#00994a,#0e4c2a);
+}
+
+.ui-input-search {
+margin-left: 5px;	
+margin-right: 5px;	
+}
+
+.ui-bar-a {
+	border: 1px solid #2A2A2A;
+	background-color: #000;
+	color: white;
+	font-weight: bold;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#2A2A2A),to(##333));
+	background-image: -webkit-linear-gradient(#2A2A2A,##333);
+	background-image: -moz-linear-gradient(#2A2A2A,##333);
+	background-image: -ms-linear-gradient(#2A2A2A,##333);
+	background-image: -o-linear-gradient(#2A2A2A,##333);
+	background-image: url(linear-gradient(#2A2A2A,##333));
+	
+}
+
+
+.adult {
+	
+	background-color: #03F;
+}
+
+
+.ui-btn-up-c {
+border: 1px solid #CCC;
+background: #EEE;
+font-weight: bold;
+color: #444;
+text-shadow: 0 1px 1px #F6F6F6;
+background-image: -webkit-gradient(linear,left top,left bottom,from(#fdc76f),to(#ff9933));
+background-image: -webkit-linear-gradient(#fdc76f,#ff9933);
+background-image: -moz-linear-gradient(#fdc76f,#ff9933);
+background-image: -ms-linear-gradient(#fdc76f,#ff9933);
+background-image: -o-linear-gradient(#fdc76f,#ff9933);
+background-image: linear-gradient(#fdc76f,#ff9933);
+
+
+}
+
+.courses_list {
+	
+	text-align: left;
+	
+	
+}
+
+.search-terms{
+   margin-bottom: 20px; padding-bottom: 20px; 
+}
+
+.search-results td {
+	 
+	 padding-bottom:10px;
+	
+}
+
+.search-results a{
+	 
+font-size: 10px;
+
+	
+}
+
+.search-results a:hover{
+	 
+color:#C30;
+	
+}
+
+#frontbuttons .ui-btn-inner {
+
+height: 13px;
+
+font-size: 12px;
+
+line-height:14px
+	
+}
+
+
+.mainBut {
+	
+	width: 100%; 
+	margin-top: 10px; 
+	height: 40px; 
+	text-align: center; 
+	
+	line-height: 40px;
+	
+	color: #fff;
+	
+}
+
+div .mainBut a {
+display:block;	
+text-decoration: none;
+color: #fff;}
+.mainBut a:hover {
+	background-color: #666;
+	color: #fff;
+}
+
+.young, #Young {/* orange       */
+background-color:  #f26722; 
+}
+
+.adult, #Adult {/* dark green       */
+background-color: #00833f; 
+}
+
+.higher, #Higher {  /*   yellow     */
+background-color: #fdb813;
+}
+
+
+
+.int,  #International { /*   yellow     */
+background-color: #d2e04e; 
+}
+
+
+.adv,  #Advanced { /*   purple     */
+background-color: #616fb1; 
+}
+
+
+.video { /*   light blue     */
+background-color: #59a7c3; 
+}
+
+ .ui-body-c .ui-link, .ui-body-c .ui-link:visited {
+	color: #333;
+	
+}
+
+
+ .phone {
+	color: #333;
+	text-decoration: none
+	
+}
+
+#phone {
+	float: left;width: 50%
+	
+}
+
+#social {
+	float: right; text-align: right
+	
+}
+
+.ui-corner-all, .ui-corner-top  {
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+
+}
+
+.ui-body-d, .ui-dialog.ui-overlay-d {
+	
+	background: none;
+}
+
+.ui-body-d, .ui-dialog.ui-overlay-d {
+text-shadow: 0 0px 0 #fff;
+}
+
+.ui-content {
+	
+min-height: 300px	
+}

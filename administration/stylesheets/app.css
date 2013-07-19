@@ -1,0 +1,161 @@
+/* Artfully masterminded by ZURB  */
+
+
+@import url(http://fonts.googleapis.com/css?family=Average+Sans);
+
+
+h1, h2, h3, h4, h5, h6 {
+
+font-family: 'Average Sans', sans-serif;	
+	
+}
+
+/* -------------------------------------------------- 
+   Table of Contents
+-----------------------------------------------------
+:: Shared Styles
+:: Page Name 1
+:: Page Name 2
+*/
+
+
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+
+.error {  	color:#900}
+
+
+/* -----------------------------------------
+  Front Page / Edit Page Catagory / New Page
+----------------------------------------- */
+
+#contentRight {    
+
+	padding:10px;
+
+	background-color:#336600;
+
+	color:#FFFFFF;
+
+}
+
+ 
+
+.delete_front_image {
+float: right;
+
+padding-right:10px; 
+
+padding-top:5px; 	
+	
+}
+
+
+.image_description {
+	
+	margin: 4px;
+	
+	display: inline-block;
+	
+	padding-left: 20px;
+	
+	position: absolute;
+	
+	top: 10px;
+	
+}
+
+#sortable div span a {
+	
+text-decoration: underline;	
+}
+
+#sortable div span a:hover {
+	
+text-decoration: none;	
+}
+
+
+/* ---------------------------------------------------------------------------------- */
+
+
+
+ #contentPages div  div, #contentPageCat div  div , #contentFront div  div {
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: auto;
+	background: #2ba6cb;
+	border: 1px solid #1e728c;
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+	color: #fff;
+	cursor: crosshair;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 1;
+	text-decoration: none;
+	-webkit-transition: background-color 0.15s ease-in-out;
+	-moz-transition: background-color 0.15s ease-in-out;
+	-o-transition: background-color 0.15s ease-in-out;
+	transition: background-color 0.15s ease-in-out;
+	position: relative;
+	margin-bottom: 6px;
+	margin-top: 0;
+	margin-right: 0;
+	margin-left: 0;
+	padding-top: 5px;
+	padding-right: 20px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+
+}
+
+ #contentPages div  div, #contentPageCat div  div , #contentFront div  div {
+	background-color: #2284a1;
+}
+
+
+ #contentPages div  div:hover, #contentPageCat div:hover  div:hover , #contentFront div  div:hover {
+	background-color: #9CC;
+}
+
+
+
+ #contentPages div  div {  /* New page------ */
+	list-style-type: none;
+	
+	
+	
+	height: 30px;
+	
+} 
+
+
+#contentPageCat div  div { /*  Page Catagory ------ */
+	list-style-type: none;
+	background-color:#69F;
+	
+	
+	height: 30px;
+} 
+
+
+#contentFront div  div { /* Front page------ */
+	list-style-type: none;
+	background-color:#999;
+	
+	
+	height: 50px;
+
+} 
+
+
+
+
+
+/* -----------------------------------------
+   Page....
+----------------------------------------- */
