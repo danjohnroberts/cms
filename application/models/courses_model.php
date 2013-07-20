@@ -33,6 +33,23 @@ $this->db->or_like('tags', $term);
 ///////////////////////////////////////////////////////////////////////
 
 
+
+public function get_course_catagories()
+
+{
+	
+	
+$query = 	$this->db->select("*")->from('catagory')->get()  ;
+
+	
+		//$query = $this->db->get('front_page_images');	
+		
+		return $query->result_array();
+
+}
+
+
+   ///////////////////////////////////////////////////////////////////////
    
 
 	public function course_type($slug = FALSE)
@@ -192,6 +209,30 @@ $this->db->delete('courses', array('id' => $slug));
 
 
 ///////////////////////////////////////////////////////////////////////
+
+ public function cat_count($cat_id = FALSE) {
+	 
+	 $query = $this->db->get_where('courses', array('cat_id'=>$cat_id));
+	return  $query->num_rows(); 
+	    
+    }
+
+///////////////////////////////////////////////////////////////////////
+
+public function cat_delete($slug)
+
+{
+	
+//$this->load->database();
+
+
+$this->db->delete('catagory', array('id' => $slug)); 
+	
+
+}
+
+
+///////////////////////////////////////////////////////////////////////
 	
 public function insert_course($cat_id)
 {
@@ -258,6 +299,33 @@ public function update_course($slug, $cat_id)
 	
 return $this->db->update('courses', $data, array('url' => $slug ));
 }
+///////////////////////////////////////////////////////////////////////
+
+
+
+public function insert_course_catagory()
+{
+	$this->load->helper('url');
+	
+	$slug = url_title($this->input->post('title'), 'dash', TRUE);
+	
+	$data = array(
+		'cat_name' =>$this->input->post('title'),
+		//'content' => $this->input->post('content'),
+		'url' => $slug,
+		'crse_type' => "international",
+		
+		
+		//'slug' => $file_name
+				
+		
+	);
+	
+	return $this->db->insert('catagory', $data);
+}
+
+
+
 ///////////////////////////////////////////////////////////////////////
 
 

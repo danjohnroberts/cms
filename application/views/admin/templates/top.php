@@ -36,7 +36,7 @@
         
          <li><label>New</label></li>
             <li>  <a <?php if ( $this->uri->uri_string() == 'admin/new-course' )  echo "class=\"active\"";?> href="<?PHP echo base_url(); ?>admin/new-course/international">New Course</a></li>
-            <li><a href="#">New Category</a></li>
+            <li><a href="<?PHP echo base_url(); ?>admin/new-course-category">New Course Catagory</a></li>
 
                  
           </ul>

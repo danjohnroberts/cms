@@ -112,13 +112,6 @@ $this->load->view('admin/crse_type', $data);
 	
 	$data['crse_type'] = $data['cat']['crse_type'];
 	
-	
-	
-	
-	
-	
-	
-	
 	$data['courses'] = $this->courses_model->catagory($data['cat_id']);
 	
 	
@@ -145,6 +138,133 @@ $this->load->view('admin/crse_type', $data);
 	}
 	
 	 	/////////////////////////////////////////////////////////////////////////// END Catagory Name
+		
+		
+		 public function course_category_new() {
+		
+		
+		if ($this->session->userdata('logged_in'))
+   
+   {
+	   
+		$session_data = $this->session->userdata('logged_in');
+	
+		$data['username'] = $session_data['username'];
+		
+
+        $data["title"] = "admin | New Course Category";
+	
+		
+		$this->load->view('admin/templates/header', $data);
+		$this->load->view('admin/templates/top', $data);
+			
+			if ($_POST)
+			
+			
+{
+	
+	$this->load->helper('form');
+	
+	$this->load->library('form_validation');
+	
+	$this->form_validation->set_rules('title', 'Title', 'required');
+
+	
+	if ($this->form_validation->run() === FALSE)
+	{
+	$front['error'] = "";	
+	
+	} else {
+		
+	$get_course_catagories = $this->courses_model->get_course_catagories();
+	
+	$name_taken = null;
+	
+	foreach ($get_course_catagories as $value)
+  {
+	  
+  if ( $value['cat_name']==$_POST['title']) {
+	$name_taken = "true";  } 
+  }
+  
+  if ($name_taken == "true") { $front['error'] = $_POST['title']." has already been taken";}
+  
+  else {
+  $this->courses_model->insert_course_catagory();
+  redirect(base_url().'admin/pagination/international', 'refresh');
+  }
+ 
+		
+	}
+	
+	
+}	else {$front['error'] = " "; }
+
+			
+		//$front['error'] = " ";
+		
+		$this->load->view('admin/course_category_new', $front);	
+		
+	
+		$this->load->view('admin/templates/footer');
+		
+		 
+    }
+	
+	
+	else
+   
+   {
+     //If no session, redirect to login page
+     redirect(base_url().'login', 'refresh');
+   }
+   
+
+	
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////
+	
+
+ 
+ 	public function cat_delete($slug)
+	
+	{
+		
+	if($this->session->userdata('logged_in'))
+   
+   {
+    
+	
+	$session_data = $this->session->userdata('logged_in');
+	
+	
+	$data['username'] = $session_data['username'];
+	
+
+
+$this->load->model('courses_model');
+
+if((int)$slug > 0){
+ 	  $this->courses_model->cat_delete($slug);
+}
+
+redirect('admin/pagination/international', 'refresh');
+
+	}
+	
+
+   
+   else
+   {
+     //If no session, redirect to login page
+     redirect(base_url().'login', 'refresh');
+   }
+   
+	}
+	
+	 /////////////////////////////////////////////////////////////////
  
  
   function search()
@@ -796,6 +916,8 @@ redirect(base_url().'admin/frontpage');
 	
 		
 		$this->load->view('admin/templates/footer');
+		
+		$this->load->view('admin/javascript/deleteCourseCat' , $data);
 	
 		
     }

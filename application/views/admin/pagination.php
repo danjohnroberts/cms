@@ -85,11 +85,13 @@
 
 <th> <strong>Type</strong></th> 
 
-
+<th> <strong>Delete</strong></th> 
 </tr>
 
 </thead>
     <tbody>
+    
+   
 
 <?php foreach ($results as $data): ?>
 
@@ -115,7 +117,23 @@
  </td>
 
  
+<td >
 
+ <?php $cat_count =  $this->courses_model->cat_count($data->id); ?>
+ 
+<?php if ( $cat_count == 0 ) { 
+            
+            echo '<a href="javascript:deleteCourseCat('.$data->id.')" >
+             <img src=" '.base_url().'administration/images/delete.png"  class="delete_front_image"></a> ';
+             
+              }
+             
+            ?>
+ 
+ 
+
+ 
+ </td>
  
 
 
@@ -142,4 +160,4 @@
      
       
       
-          <script src="<?PHP echo base_url(); ?>administration/js/delete-course.js"></script>
+         

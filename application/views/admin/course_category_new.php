@@ -4,17 +4,17 @@
 
   <ul class="breadcrumbs">
   <li><a href="<?PHP echo base_url(); ?>admin">Admin Home</a></li>
-   <li><a href="<?PHP echo base_url(); ?>admin/page-categories">Main Page List</a></li> 
+  
  
   
 
-  <li class="current"><a href="#">New Main Page </a></li>
+  <li class="current"><a href="#">New Course Catagory</a></li>
   
  
 </ul>
     
     
-    <H3> Create New Main Page </H3>
+   <H3> Create New Course Catagory </H3>
 
 		<hr/>
   
@@ -29,7 +29,7 @@
 
 			$attributes = array('class' => 'email', 'id' => 'form');
 
-			echo form_open_multipart(base_url().'admin/new-page-category',  $attributes);
+			echo form_open_multipart(base_url().'admin/new-course-category',  $attributes);
 			
 			?>
 
@@ -40,14 +40,14 @@
            
 
 			<br />
-			<label for="text">content</label>
+		<!-- 	<label for="text">content</label>
 			<br />
 
-      		<textarea  name="content" rows="15" cols="80" ></textarea><br />
+      		<textarea  name="content" rows="15" cols="80" ></textarea><br />   -->
     
    
 
-			<input class="radius button" name="New Main Page " type="submit" id="New Page Category" value="New Main Page "  />
+			<input class="radius button" name="New Main Page " type="submit" id="New Course Category" value="New Course Category"  />
 
 			</form>
     

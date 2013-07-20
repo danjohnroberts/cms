@@ -99,6 +99,10 @@ $route['admin/new-course'] = 'admin/course_new';
 
 $route['admin/new-course/(:any)'] = 'admin/course_new/$1';
 
+$route['admin/new-course-category'] = 'admin/course_category_new';
+
+$route['admin/cat-delete/(:any)'] = 'admin/cat_delete/$1';
+
 
 
 
