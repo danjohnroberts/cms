@@ -8,13 +8,13 @@
  
   
 
-  <li class="current"><a href="#">New Course Catagory</a></li>
+  <li class="current"><a href="#">New Course Category</a></li>
   
  
 </ul>
     
     
-   <H3> Create New Course Catagory </H3>
+   <H3> Create New Course Category </H3>
 
 		<hr/>
   

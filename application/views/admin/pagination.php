@@ -81,7 +81,7 @@
 <table class="courses_list tablesorter" style="width:100%">
 	<thead>
 <tr>
-<th><strong>Catagory</strong></th> 
+<th><strong>Category</strong></th> 
 
 <th> <strong>Type</strong></th> 
 
