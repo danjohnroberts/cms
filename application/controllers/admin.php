@@ -38,7 +38,7 @@ class admin extends CI_Controller
             $this->load->view('admin/index', $data);
             
             $this->load->view('admin/templates/footer', $data);
-        } //$this->session->userdata('logged_in')
+        } 
         
         else {
             //If no session, redirect to login page
@@ -76,9 +76,7 @@ class admin extends CI_Controller
         } 
     }
     
-    
-    
-    
+ 
     /////////////////////////////////////////////////////////////////////////// Catagory Name
     
     public function catagory($slug)

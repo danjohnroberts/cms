@@ -18,8 +18,7 @@ class pages_control extends CI_Controller
         
     }
     
-    
-    
+  
     public function page_catagories()
     {
         
@@ -43,7 +42,7 @@ class pages_control extends CI_Controller
             
             
             $this->load->view('admin/templates/footer');
-        }
+        } 
         
         
         else {
@@ -120,7 +119,7 @@ class pages_control extends CI_Controller
                 $front['error'] = " ";
             }
             
- 
+            
             $this->load->view('admin/page_category_new', $front);
             
             
@@ -133,13 +132,13 @@ class pages_control extends CI_Controller
             redirect(base_url() . 'login', 'refresh');
         }
         
-
+        
     }
     
     
     //////////////////////////////////////////////////////////////////////
     
-
+    
     
     public function page_delete($slug, $slug2)
     {
@@ -151,7 +150,7 @@ class pages_control extends CI_Controller
             
             
             $data['username'] = $session_data['username'];
-
+            
             
             if ((int) $slug > 0) {
                 $this->pages_model->page_delete($slug);
@@ -163,7 +162,7 @@ class pages_control extends CI_Controller
             
             
             
-        }
+        } 
         
         
         
@@ -174,7 +173,7 @@ class pages_control extends CI_Controller
         
     }
     //////////////////////////////////////////////////////////////////////
-
+    
     
     public function page_update($slug)
     {
@@ -190,7 +189,7 @@ class pages_control extends CI_Controller
             $session_data = $this->session->userdata('logged_in');
             
             $data['username'] = $session_data['username'];
-
+            
             $data['get_page_catagory_list'] = $this->pages_model->get_page_catagories();
             
             
@@ -212,7 +211,7 @@ class pages_control extends CI_Controller
                 $data['slug'] = $_POST['slug'];
                 
                 $data['get_page_catagories'] = $_POST['get_page_catagory_list'];
-   
+                
                 
             } 
             else {
@@ -246,7 +245,7 @@ class pages_control extends CI_Controller
                 $this->load->view('admin/templates/top', $data);
                 $this->load->view('admin/page_update', $data);
                 $this->load->view('admin/templates/footer');
-            } //$this->form_validation->run() === FALSE
+            }
             
             else {
                 
@@ -260,7 +259,7 @@ class pages_control extends CI_Controller
                 
             }
             
-        } //$this->session->userdata('logged_in')
+        } 
         
         else {
             //If no session, redirect to login page
@@ -306,8 +305,8 @@ class pages_control extends CI_Controller
                 
                 $data['cat_id'] = $_POST['cat_id'];
                 
-        
-            }
+                
+            } 
             else {
                 
                 
@@ -333,7 +332,7 @@ class pages_control extends CI_Controller
                 
                 $this->load->view('admin/page_category_update', $data);
                 
-            } 
+            }
             else {
                 
                 
@@ -369,10 +368,7 @@ class pages_control extends CI_Controller
             
             
             $data['username'] = $session_data['username'];
-            
-            
-            
-       
+
             
             if ((int) $slug > 0) {
                 $this->pages_model->page_catagory_delete($slug);
@@ -391,7 +387,7 @@ class pages_control extends CI_Controller
         
     }
     
-
+    
     /////////////////////////////////////////////////////////
     
     public function sort_pages($slug)
@@ -411,19 +407,16 @@ class pages_control extends CI_Controller
         
         
         if ($action == "updateRecordsListings") {
-            
-            
-            
+     
             $listingCounter = 1;
             foreach ($updateRecordsArray as $recordIDValue) {
                 
                 $query = "UPDATE $slug SET sort = " . $listingCounter . " WHERE id = " . $recordIDValue;
                 mysql_query($query) or die('Error, insert query failed');
                 $listingCounter = $listingCounter + 1;
-            } 
+            }
             
-            
-            echo '<pre>';
+			echo '<pre>';
             print_r($updateRecordsArray);
             echo '</pre>';
             echo 'If you refresh the page, you will see that records will stay just as you modified.';
@@ -434,7 +427,7 @@ class pages_control extends CI_Controller
     
     /////////////////////////////////////////////////////////
     
-
+    
     
     public function page_new($slug = null)
     {
@@ -450,7 +443,7 @@ class pages_control extends CI_Controller
             
             $data["title"] = "admin | New Page";
             
-        
+            
             $data["category_select"] = $slug;
             
             
@@ -476,15 +469,13 @@ class pages_control extends CI_Controller
                 $this->load->library('form_validation');
                 
                 $this->form_validation->set_rules('title', 'Title', 'required');
-                
-                
-                
+     
                 if ($this->form_validation->run() === FALSE) {
                     $front['error'] = "";
                     
-                } 
+                }
                 else {
-           
+                    
                     
                     $get_page = $this->pages_model->get_pages($slug);
                     
@@ -504,12 +495,12 @@ class pages_control extends CI_Controller
                     }
                     
                     else {
-    
+                        
                         $this->pages_model->insert_page($slug);
                         
                         
                         redirect(base_url() . 'admin/page-category-update/' . $_POST['category'], 'refresh');
-    
+                        
                         
                     }
                     

@@ -55,15 +55,15 @@ Class User extends CI_Model
         
     }
     
-
+    
     
     //////////////////////////////////////////////////////////////////////////////////////////////// 
     
     public function insert_user()
     {
         $this->load->helper('url');
-		
-		$password =	MD5($this->input->post('password'));
+        
+        $password = MD5($this->input->post('password'));
         
         $data = array(
             'username' => $this->input->post('username'),

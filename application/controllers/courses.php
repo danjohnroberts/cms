@@ -50,9 +50,7 @@ class courses extends CI_Controller
         
         $data['title'] = $slug;
         
-        
-        
-        
+
         $this->load->view('templates/header', $data);
         
         $this->load->view('templates/nav-bar', $data);

@@ -117,7 +117,7 @@ class public_control extends CI_Controller
             
             
             $this->load->view('templates/footer', $data);
-        } //$data['category'] = $this->pages_model->get_page_catagory_slug($slug)
+        }
         else {
             show_404();
         }

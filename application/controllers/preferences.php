@@ -64,7 +64,7 @@ class preferences extends CI_Controller
                     $data['error'] = "";
                     
                     
-                } //$result['pages'] = $this->user->login2($username, $current_password)
+                } 
                 
                 else {
                     
@@ -80,13 +80,11 @@ class preferences extends CI_Controller
                     
                     
                     $this->user->update_user($username, $_POST['password_confirm']);
+         
                     
-                    
-                    
-                } //$error == 0
+                } 
                 
-                
-                
+         
                 $this->load->view('admin/templates/header');
                 
                 $this->load->view('admin/templates/top', $data);
@@ -101,7 +99,7 @@ class preferences extends CI_Controller
             }
             
             
-        } //$this->session->userdata('logged_in')
+        } 
         
         
         else {
@@ -144,7 +142,7 @@ class preferences extends CI_Controller
                 
                 $this->load->view('admin/javascript/preferences');
                 
-            } //$this->form_validation->run() === FALSE
+            }
             else {
                 
                 $this->user->insert_user();
@@ -153,7 +151,7 @@ class preferences extends CI_Controller
             }
             
             
-        } //$this->session->userdata('logged_in')
+        } 
         
         
         else {
