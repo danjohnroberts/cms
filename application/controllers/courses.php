@@ -151,6 +151,92 @@ class courses extends CI_Controller {
 	
 	
 			/////////////////////////////////////////////////////////////////////////////////////////////////////////
+			
+ public function course_category_new() {
+		
+		
+		if ($this->session->userdata('logged_in'))
+   
+   {
+	   
+		$session_data = $this->session->userdata('logged_in');
+	
+		$data['username'] = $session_data['username'];
+		
+
+        $data["title"] = "admin | New Page Category";
+	
+		
+		$this->load->view('admin/templates/header', $data);
+		$this->load->view('admin/templates/top', $data);
+			
+			if ($_POST)
+			
+			
+{
+	
+	$this->load->helper('form');
+	
+	$this->load->library('form_validation');
+	
+	$this->form_validation->set_rules('title', 'Title', 'required');
+
+	
+	if ($this->form_validation->run() === FALSE)
+	{
+	$front['error'] = "";	
+	
+	} else {
+		
+	$get_page_catagories = $this->pages_model->get_page_catagories();
+	
+	$name_taken = null;
+	
+	foreach ($get_page_catagories as $value)
+  {
+	  
+  if ( $value['title']==$_POST['title']) {
+	$name_taken = "true";  } 
+  }
+  
+  if ($name_taken == "true") { $front['error'] = $_POST['title']." has already been taken";}
+  
+  else {
+  $this->pages_model->insert_page_catagory();
+  redirect(base_url().'admin/page-categories', 'refresh');
+  }
+ 
+		
+	}
+	
+	
+}	else {$front['error'] = " "; }
+
+			
+		//$front['error'] = " ";
+		
+		$this->load->view('admin/course_category_new', $front);	
+		
+	
+		$this->load->view('admin/templates/footer');
+    }
+	
+	
+	else
+   
+   {
+     //If no session, redirect to login page
+     redirect(base_url().'login', 'refresh');
+   }
+   
+
+	
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////
+	
+			
 	
 		public function apply($page = 'home')
 {
