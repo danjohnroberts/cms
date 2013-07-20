@@ -3,7 +3,7 @@
   
   
     
-      <div class="panel" id="courses_table">
+      <div class="panel background" id="courses_table">
       <h1><?php echo $title; ?></h1>
       
       

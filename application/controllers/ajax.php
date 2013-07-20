@@ -42,7 +42,7 @@ $title  = "International Website | From Contact form";
 
 $subject = "Contact Form";
 
-$sendto   = "dan.john.roberts@gmail.com";
+$sendto   = "international@waltham.ac.uk";
 
 
 // Client Email Subject
@@ -133,7 +133,7 @@ $title  = "International Website | Course Application";
 
 $subject = "Course Application";
 
-$sendto   = "dan.john.roberts@gmail.com";
+$sendto   = "international@waltham.ac.uk";
 
 
 // Client Email Subject

@@ -8,24 +8,23 @@
  <ul class="breadcrumbs">
   <li><a href="<?PHP echo base_url(); ?>admin">Admin Home</a></li>
 
- 
+  <li><a href="<?PHP echo base_url(); ?>admin/preferences">Preferences</a></li>
   
-   <li class="current"><a href="#">Preferences</a></li>
+   <li class="current"><a href="#">Create New User</a></li>
  
 </ul>
       
 
 
 
-<h3>Preferences</h3>
+<h3>Create New User</h3>
 
- <div class="error">  <?php echo $error;?></div>
- <div class="error">  <?php echo $match;?></div>
- 	<div class="error"> <?php echo validation_errors(); ?> </div>
+
+ 
 <hr/>
 
-<h4> Update <?php echo $username; ?></h4>
 
+	<div class="error"> <?php echo validation_errors(); ?> </div>
 
  
  <?php 
@@ -34,21 +33,21 @@
 
 
  
- echo form_open_multipart(base_url().'admin/preferences' , $attributes);?>
-
-<hr/>
-
-<p>Current password</p>
+ echo form_open_multipart(base_url().'admin/create-user' , $attributes);?>
 
 
-<input type="password" name="current_password" for="password">
+
+<p>New user name</p>
+
+
+<p><input type="text" name="username" for="username"></p>
 <br />
 
 new password
 <input type="password" name="password">
 <br />
 
-Repeat new password 
+repeat password
 <input type="password" name="password_confirm">
 <br />
 

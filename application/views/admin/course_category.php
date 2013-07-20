@@ -10,7 +10,7 @@
           <ul class="breadcrumbs">
   <li><a href="<?PHP echo base_url(); ?>admin">Admin Home</a></li>
   
-    <li><a href="<?PHP echo base_url(); ?>admin/<?php echo $crse_type ; ?>"><?php echo $crse_type ; ?></a></li>
+    <li><a href="<?PHP echo base_url(); ?>admin/pagination/<?php echo $crse_type ; ?>"><?php echo $crse_type ; ?></a></li>
    
        <li class="current"><a href="#"><?php echo $cat_name ; ?></a></li>
 

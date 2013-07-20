@@ -24,19 +24,26 @@
 
 <hr/>
    
-<a class="large button expand round" href="<?PHP echo base_url(); ?>admin/new-course/international">New Course</a>
+<a class="large button expand round frntcourse" href="<?PHP echo base_url(); ?>admin/new-course/international">New Course</a>
+  
+ 
+<p></p>
+
+  
+  <a class="large button expand round frntcourse" href="<?PHP echo base_url(); ?>admin/new-course/international">New Course Catagory</a>
+  
 
 <hr/>
 
-<a class="large button expand round" href="<?PHP echo base_url(); ?>admin/frontpage">Front Page</a>
+<a class="large button expand round frntfront" href="<?PHP echo base_url(); ?>admin/frontpage">Front Page</a>
 
 <hr/>
    
-<a class="large button expand round" href="<?PHP echo base_url(); ?>admin/new-page-category">New Main Page </a>
+<a class="large button expand round frntpage" href="<?PHP echo base_url(); ?>admin/new-page-category">New Main Page </a>
 
-<hr/>
+<p></p>
    
-<a class="large button expand round" href="<?PHP echo base_url(); ?>admin/new-page">New Sub Page</a>
+<a class="large button expand round frntpage" href="<?PHP echo base_url(); ?>admin/new-page">New Sub Page</a>
 
 <hr/>
 

@@ -27,6 +27,8 @@ $route['admin/logout'] = 'admin/logout';
 
 $route['admin/preferences'] = 'preferences/password';
 
+$route['admin/create-user'] = 'preferences/create_user';
+
 /////////////////////////////////////////////////////////////// pages and page catagories
 
 $route['admin/pages'] = 'admin/pages/pages';

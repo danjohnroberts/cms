@@ -42,18 +42,18 @@ margin-left: 40px;
 ----------------------------------------- */
 
 
-body {
-	background-image: url(../images/background.jpg);
-	background-repeat: repeat-y;
+.background {
+	background-image: url(../images/page-background.jpg);
+	background-repeat: no-repeat;
+	background-position: left toppx;
 }
 
 h1 {font-size: 24px;}
 
 h3, h1 {
-
-padding-bottom: 20px;
-
-font-size: 18px;
+	padding-bottom: 20px;
+	font-size: 18px;
+	color: #333;
 }
 
 #courses_table table {
