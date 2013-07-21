@@ -45,6 +45,17 @@ class admin extends CI_Controller
             redirect(base_url() . 'login', 'refresh');
         }
     }
+	
+	 /////////////////////////////////////////////////////////////////
+	
+	
+	   function logout()    ////////////////// logout  /////////////
+    {
+        $this->session->unset_userdata('logged_in');
+        session_destroy();
+        redirect(base_url() . '', 'refresh');
+    }
+    	
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     
@@ -53,20 +64,16 @@ class admin extends CI_Controller
     {
         
         if ($this->session->userdata('logged_in')) {
+			
             $session_data = $this->session->userdata('logged_in');
             
             $data['username'] = $session_data['username'];
-            
-            
-            $data['courses'] = $this->courses_model->course_type($slug);
+		
+		    $data['courses'] = $this->courses_model->course_type($slug);
             
             $slug = ucwords($slug);
             
             $data['title'] = $slug;
- 
-            
-            //////////////
-            
             
             $this->load->view('admin/templates/header', $data);
             $this->load->view('admin/templates/top', $data);
@@ -89,25 +96,18 @@ class admin extends CI_Controller
             $data['username'] = $session_data['username'];
             
             $data['cat'] = $this->courses_model->cat_id($slug);
-            
-            
-            
-            $data['cat_id'] = $data['cat']['id'];
-            
-            
-            $data['cat_name'] = $data['cat']['cat_name'];
-            
-            
+			
+        	$data['cat_id'] = $data['cat']['id'];
+          	
+			$data['cat_name'] = $data['cat']['cat_name'];
+      
             $data['crse_type'] = $data['cat']['crse_type'];
             
             $data['courses'] = $this->courses_model->catagory($data['cat_id']);
-            
-            
-            ////////////////
+ 
             $data['catagory'] = $this->courses_model->course_type();
-            ////////////////
-            
-            
+          
+         
             $slug = ucwords($slug);
             
             $slug = str_replace("-", " ", $slug);
@@ -115,8 +115,7 @@ class admin extends CI_Controller
             $data['page_name'] = $slug;
             
             $data['title'] = $slug;
-            
-            
+        
             $this->load->view('admin/templates/header', $data);
             $this->load->view('admin/templates/top', $data);
             $this->load->view('admin/course_category', $data);
@@ -128,10 +127,10 @@ class admin extends CI_Controller
     /////////////////////////////////////////////////////////////////////////// END Catagory Name
     
     
-    public function course_category_new()
+    public function course_category_new()  /////////////////////// Course Category New ///////////////////////////
+	
     {
-        
-        
+    
         if ($this->session->userdata('logged_in')) {
             
             $session_data = $this->session->userdata('logged_in');
@@ -179,23 +178,21 @@ class admin extends CI_Controller
                         $this->courses_model->insert_course_catagory();
                         redirect(base_url() . 'admin/pagination/international', 'refresh');
                     }
-                    
-                    
+       
                 }
-                
-                
+         
             } 
+			
             else {
+				
                 $front['error'] = " ";
             }
 
             
             $this->load->view('admin/course_category_new', $front);
-            
-            
+     
             $this->load->view('admin/templates/footer');
-            
-            
+      
         }
         
         
@@ -204,8 +201,7 @@ class admin extends CI_Controller
             redirect(base_url() . 'login', 'refresh');
         }
         
-        
-        
+   
     }
     
     
@@ -213,7 +209,7 @@ class admin extends CI_Controller
     
     
     
-    public function cat_delete($slug)
+    public function cat_delete($slug)  ///////////////// Cat Delete  ///////////////////////
     {
         
         if ($this->session->userdata('logged_in')) {
@@ -223,9 +219,7 @@ class admin extends CI_Controller
             
             
             $data['username'] = $session_data['username'];
-            
-            
-            
+         
             $this->load->model('courses_model');
             
             if ((int) $slug > 0) {
@@ -235,70 +229,26 @@ class admin extends CI_Controller
             redirect('admin/pagination/international', 'refresh');
             
         }
-        
-        
-        
+  
         else {
             //If no session, redirect to login page
             redirect(base_url() . 'login', 'refresh');
         }
         
     }
-    
-    /////////////////////////////////////////////////////////////////
-    
-    
-    function search()
-    {
-        
-        if ($this->session->userdata('logged_in')) {
-            $session_data = $this->session->userdata('logged_in');
-            
-            $data['username'] = $session_data['username'];
-            
-            
-            $data['results'] = $this->courses_model->search($this->input->post('search'));
-                        
-            
-            $input = $_POST['search'];
-            
-            
-            
-            $data['result'] = "<p>Your search term <Strong>" . $input . "</Strong> gave the following results: <br/></p>";
 
-            
-            $data['title'] = 'Search';
-            
-            $this->load->view('admin/templates/header', $data);
-            
-            $this->load->view('admin/templates/top', $data);
-            
-            $this->load->view('admin/courses_search', $data);
-            
-            $this->load->view('admin/templates/footer', $data);
-            
-            
-        } 
-        
-    }
-    
-    
     /////////////////////////////////////////////////////////////////
     
     
-    public function course_delete($slug)
+    public function course_delete($slug)  /////////////////////// Course Delete //////////////////////////
     {
         
         if ($this->session->userdata('logged_in')) {
-            
-            
+        
             $session_data = $this->session->userdata('logged_in');
-            
-            
+   
             $data['username'] = $session_data['username'];
-            
-            
-            
+  
             $this->load->model('courses_model');
             
             if ((int) $slug > 0) {
@@ -319,7 +269,7 @@ class admin extends CI_Controller
     
     /////////////////////////////////////////////////////////////////
  
-    public function course_new($slug = FALSE)
+    public function course_new($slug = FALSE)    /////////////////////// Course New ///////////////////////////////
     {
         
         if ($this->session->userdata('logged_in')) {
@@ -341,12 +291,14 @@ class admin extends CI_Controller
             $this->form_validation->set_rules('description', 'required');
             
             if ($this->form_validation->run() === FALSE) {
+				
                 $this->load->view('admin/templates/header', $data);
                 $this->load->view('admin/templates/top', $data);
                 $this->load->view('admin/course_create');
                 $this->load->view('admin/templates/footer');
                 
             } 
+			
             else {
                 
                 $data['cat_id'] = $this->courses_model->cat_id($_POST['catagory']);
@@ -360,8 +312,6 @@ class admin extends CI_Controller
             }
             
         } 
-        
-        
         
         else {
             //If no session, redirect to login page
@@ -398,6 +348,7 @@ class admin extends CI_Controller
             } 
             
             if ($_POST) {
+				
                 $data['title'] = $_POST['title'];
                 
                 $data['description'] = $_POST['description'];
@@ -405,22 +356,17 @@ class admin extends CI_Controller
                 $data['title'] = $_POST['title'];
                 
                 $data['description'] = $_POST['description'];
-                
-                
+         
                 $data['url'] = $data['course']['url'];
-                
-                
+        
                 $data['cat_id'] = $_POST['catagory'];
-                
-                
+        
                 $data['cat_id'] = $this->courses_model->cat_id($_POST['catagory']);
                 
                 $data['cat_id'] = $data['cat_id']['id'];
-                
-                
+      
                 $cat_id = $data['cat_id'];
-                
-                
+         
                 $data['study_mode'] = $_POST['study_mode'];
                 
                 $data['who']                = $_POST['who'];
@@ -435,14 +381,11 @@ class admin extends CI_Controller
                 $data['title'] = $data['course']['title'];
                 
                 $data['description'] = $data['course']['description'];
-                
-                
-                
+     
                 $data['url'] = $data['course']['url'];
                 
                 $data['cat_id'] = $data['course']['cat_id'];
-                
-                
+       
                 $data['study_mode'] = $data['course']['study_mode'];
                 
                 $data['who']                = $data['course']['who'];
@@ -480,7 +423,7 @@ class admin extends CI_Controller
                 $this->load->view('admin/course_update', $data);
                 $this->load->view('admin/templates/footer');
                 
-            } //$this->form_validation->run() === FALSE
+            } 
             
             else {
                 $this->load->view('admin/templates/header', $data);
@@ -492,7 +435,7 @@ class admin extends CI_Controller
                 $this->courses_model->update_course($slug, $cat_id);
             }
             
-        } //$this->session->userdata('logged_in')
+        } 
         
         else {
             //If no session, redirect to login page
@@ -506,19 +449,11 @@ class admin extends CI_Controller
     /////////////////////////////////////////////////////////////////
     
     
-    function logout()
-    {
-        $this->session->unset_userdata('logged_in');
-        session_destroy();
-        redirect(base_url() . '', 'refresh');
-    }
-    
  
-    /////////////////////////////////////////////////////////////////
     
     
     
-    public function all_courses()
+    public function all_courses() /////////////////////////////// All Courses //////////////////////////////////
     {
         
         
@@ -548,27 +483,19 @@ class admin extends CI_Controller
             $page            = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
             $data["results"] = $this->courses_model->fetch_courses($config["per_page"], $page, $order);
             $data["links"]   = $this->pagination->create_links();
-            
-            ///////////////////////////////////////////////////////
-            
+         
             $data['catagory'] = $this->courses_model->course_type();
             
-            
-            ///////////////////////////////////////////////////////
-            
-            
-            
+  
             $this->load->view('admin/templates/header', $data);
             $this->load->view('admin/templates/top', $data);
             
             $this->load->view("admin/courses_all", $data);
-            
-            
-            
+      
             $this->load->view('admin/templates/footer');
             
             
-        } //$this->session->userdata('logged_in')
+        } 
         
         
         else {
@@ -580,7 +507,39 @@ class admin extends CI_Controller
 
     
     /////////////////////////////////////////////////////////////////
+
     
+    function search() /////////////////////////////// Course Search  //////////////////////////////////
+    {
+        
+        if ($this->session->userdata('logged_in')) {
+			
+            $session_data = $this->session->userdata('logged_in');
+            
+            $data['username'] = $session_data['username'];
+     
+            $data['results'] = $this->courses_model->search($this->input->post('search'));
+                        
+          	$input = $_POST['search'];
+        
+			$data['result'] = "<p>Your search term <Strong>" . $input . "</Strong> gave the following results: <br/></p>";
+    
+            $data['title'] = 'Search';
+            
+            $this->load->view('admin/templates/header', $data);
+            
+            $this->load->view('admin/templates/top', $data);
+            
+            $this->load->view('admin/courses_search', $data);
+            
+            $this->load->view('admin/templates/footer', $data);
+        
+        } 
+        
+    }
+	
+	
+    /////////////////////////////////////////////////////////////////
    
     public function frontpage()
     {
@@ -610,7 +569,7 @@ class admin extends CI_Controller
                 $config['max_width']     = '11024';
                 $config['max_height']    = '1768';
                 
-                //$this->upload->initialize($config);
+                
                 
                 $this->load->library('upload', $config);
                 
@@ -625,7 +584,7 @@ class admin extends CI_Controller
                     $front['front_page_images'] = $this->frontpage->get_frontpage_image();
                     
                     $this->load->view('admin/frontpage', $front);
-                } //!$this->upload->do_upload()
+                } 
                 else {
                     
      
@@ -645,7 +604,7 @@ class admin extends CI_Controller
                 }
                 
                 
-            } //isset($_POST['post'])
+            }
             else {
                 
                 
@@ -662,7 +621,7 @@ class admin extends CI_Controller
             $this->load->view('admin/templates/footer');
             
             $this->load->view('admin/javascript/frontpage_image_delete', $front);
-        } //$this->session->userdata('logged_in')
+        } 
         
         
         else {
@@ -758,7 +717,7 @@ class admin extends CI_Controller
     /////////////////////////////////////////////////////////////////////////// END frontpage_delete
     
     
-    ///////////////////////////////////////////////////////////////// Pagination test
+    ///////////////////////////////////////////////////////////////// Pagination 
     
     
     

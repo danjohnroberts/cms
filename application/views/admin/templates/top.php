@@ -61,8 +61,9 @@
                      <li>  <a href="<?PHP echo base_url(); ?>admin/page-categories">Page List</a>    </li>
        
                 <li class="divider"></li>
-                   <li><label>new</label><a href="<?PHP echo base_url(); ?>admin/new-page-category">New main page</a>  </li> 
-                  <li><a href="<?PHP echo base_url(); ?>admin/new-page">New sub-page </a>  </li> 
+                   <li><label>new</label>
+                   <a href="<?PHP echo base_url(); ?>admin/new-page-category">New Main Page</a>  </li> 
+                  <li><a href="<?PHP echo base_url(); ?>admin/new-page">New Sub Page </a>  </li> 
         
             </ul>
         </li>
@@ -82,7 +83,7 @@
       
         <li class="divider"></li>
         <li class="has-dropdown">
-          <a href="#">Welcome <?php echo $username; ?></a>
+          <a href="#">Welcome <span style="color:#F60; "><?php echo ucwords($username); ?></span></a>
           <ul class="dropdown">
             <li><label>Acount</label></li>
            
