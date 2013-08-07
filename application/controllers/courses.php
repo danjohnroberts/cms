@@ -89,6 +89,8 @@ class courses extends CI_Controller
             $slug = str_replace("-", " ", $slug);
             
             $data['page_name'] = $slug;
+			
+			$data['title'] = $slug;
             
             
             $this->load->view('templates/header', $data);
